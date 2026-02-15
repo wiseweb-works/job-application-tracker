@@ -1,0 +1,44 @@
+version: "2"
+type: frontend
+tech_stack:
+  - TypeScript
+  - Next.js 15
+  - React 19
+  - Prisma (SQLite)
+  - Tailwind CSS
+  - Shadcn UI
+  - Zod
+routes:
+  - path: /
+    file: app/page.tsx
+    auth_required: false
+    description: Redirects to /applications
+  - path: /applications
+    file: app/applications/page.tsx
+    auth_required: false
+    description: Main dashboard listing job applications
+features:
+  - name: Job Application Management
+    description: Create, read, update, and delete job applications
+    files:
+      - app/applications/page.tsx
+      - app/actions/application.actions.ts
+      - lib/repositories/application.repository.ts
+      - lib/zod/application.schema.ts
+    entry_route: /applications
+    user_interactions:
+      - Click "Add Application" button
+      - Fill job details in the form (Company, Title, Status, Location)
+      - Submit the form to create or update
+      - View list of applications
+      - Filter applications by status or name
+      - Delete an application via the list
+    api_calls:
+      - method: POST
+        endpoint: /app/actions/application.actions.ts (createApplication)
+      - method: POST
+        endpoint: /app/actions/application.actions.ts (updateApplication)
+      - method: POST
+        endpoint: /app/actions/application.actions.ts (deleteApplication)
+    auth_required: false
+known_limitations: []

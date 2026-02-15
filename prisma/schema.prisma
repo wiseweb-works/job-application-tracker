@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model JobApplication {
+  id              String   @id @default(uuid())
+  companyName     String
+  jobTitle        String
+  status          String   @default("APPLIED")
+  location        String
+  salaryRange     String?
+  applicationDate DateTime
+  notes           String   @default("")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@map("job_applications")
+}

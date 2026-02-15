@@ -1,0 +1,17 @@
+{
+  "status": "commited",
+  "type": "frontend",
+  "scope": "codebase",
+  "localEndpoint": "http://localhost:3000",
+  "executionArgs": {
+    "projectName": "job-application-tracker",
+    "projectPath": "/home/wise/Desktop/Ak/Github/portfolio/job-application-tracker",
+    "testIds": [],
+    "additionalInstruction": "Execute all tests. The dev server is running on http://localhost:3000. Force code generation. If browsers are missing, use a headless mode if possible or alert for manual installation. Use the 'open' script I created if needed for dashboard.",
+    "envs": {
+      "API_KEY": "sk-user-MuJu_QeBsmUFeYscLM0l8_qP7rQpc2Y1UxtcGsKGE6Zo52L4C9AxtFd4D74JUkQqYcAk79dIrTYElrc0pHEqpO2sVePBtfdvLn9xfKGn7-hQy8hyx5Yp9Fqx2xWXGHhAxig"
+    }
+  },
+  "serverPort": 46693,
+  "proxy": "http://eaa878ad-d895-452d-8aaf-e0e35b95135e:DJzOA0BYCIMzuIJ64qTjkD5xFYNj8vu9@tun.testsprite.com:8080"
+}

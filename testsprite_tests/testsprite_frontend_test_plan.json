@@ -1,0 +1,932 @@
+[
+  {
+    "id": "TC001",
+    "title": "Open Applications dashboard directly and verify list/grid layout is visible",
+    "description": "Verifies the Applications dashboard loads from the static route and presents the application list/grid container.",
+    "category": "Dashboard / Application List",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /applications"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/applications\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Applications\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Add Application\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Status\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC002",
+    "title": "Visual resilience: scroll the Applications dashboard and confirm list remains accessible",
+    "description": "Verifies the dashboard remains usable when scrolling and that list elements are still visible afterward.",
+    "category": "Dashboard / Application List",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /applications"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Applications\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the bottom of the page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Add Application\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the top of the page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Applications\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC003",
+    "title": "Add a new application with all required fields plus optional Salary Range and Notes",
+    "description": "Verifies a user can create a new job application and then see it listed on the applications dashboard.",
+    "category": "Add / Edit Application",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /applications"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Applications\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Add Application\""
+      },
+      {
+        "type": "action",
+        "description": "Type \"Acme Corp\" into the \"Company Name\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Frontend Engineer\" into the \"Job Title\" field"
+      },
+      {
+        "type": "action",
+        "description": "Select \"Applied\" from the \"Status\" dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Type \"New York, NY\" into the \"Location\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"2026-02-15\" into the \"Application Date\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"$120k-$140k\" into the \"Salary Range\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Reached out to recruiter on LinkedIn.\" into the \"Notes\" field"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Submit\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Success\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Acme Corp\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Frontend Engineer\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC004",
+    "title": "Add a new application with only required fields",
+    "description": "Verifies a user can create a new job application when optional fields are left empty.",
+    "category": "Add / Edit Application",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /applications"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Add Application\""
+      },
+      {
+        "type": "action",
+        "description": "Type \"Globex\" into the \"Company Name\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"QA Engineer\" into the \"Job Title\" field"
+      },
+      {
+        "type": "action",
+        "description": "Select \"Interview\" from the \"Status\" dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Austin, TX\" into the \"Location\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"2026-02-01\" into the \"Application Date\" field"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Submit\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Success\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Globex\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC005",
+    "title": "Company Name required validation shown and cleared after correction",
+    "description": "Verifies the form blocks submission when Company Name is missing and allows submission after fixing the error.",
+    "category": "Add / Edit Application",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /applications"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Add Application\""
+      },
+      {
+        "type": "action",
+        "description": "Type \"Product Manager\" into the \"Job Title\" field"
+      },
+      {
+        "type": "action",
+        "description": "Select \"Applied\" from the \"Status\" dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Remote\" into the \"Location\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"2026-02-10\" into the \"Application Date\" field"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Submit\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Company Name is required\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Initech\" into the \"Company Name\" field"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Submit\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Success\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Initech\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC006",
+    "title": "Validation for missing Job Title",
+    "description": "Verifies the form shows a validation error when Job Title is missing and submits successfully after Job Title is provided.",
+    "category": "Add / Edit Application",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /applications"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Add Application\""
+      },
+      {
+        "type": "action",
+        "description": "Type \"Hooli\" into the \"Company Name\" field"
+      },
+      {
+        "type": "action",
+        "description": "Select \"Applied\" from the \"Status\" dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Type \"San Francisco, CA\" into the \"Location\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"2026-02-12\" into the \"Application Date\" field"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Submit\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Job Title is required\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Backend Engineer\" into the \"Job Title\" field"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Submit\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Success\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Hooli\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC007",
+    "title": "Validation for missing Status selection",
+    "description": "Verifies the form shows a validation error when Status is not selected and submits successfully after selecting a Status.",
+    "category": "Add / Edit Application",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /applications"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Add Application\""
+      },
+      {
+        "type": "action",
+        "description": "Type \"Stark Industries\" into the \"Company Name\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Mobile Developer\" into the \"Job Title\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Los Angeles, CA\" into the \"Location\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"2026-02-11\" into the \"Application Date\" field"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Submit\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Status is required\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Select \"Applied\" from the \"Status\" dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Submit\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Success\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Stark Industries\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC008",
+    "title": "Validation for missing Location",
+    "description": "Verifies the form shows a validation error when Location is missing and allows submission after entering Location.",
+    "category": "Add / Edit Application",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /applications"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Add Application\""
+      },
+      {
+        "type": "action",
+        "description": "Type \"Wayne Enterprises\" into the \"Company Name\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Data Analyst\" into the \"Job Title\" field"
+      },
+      {
+        "type": "action",
+        "description": "Select \"Applied\" from the \"Status\" dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Type \"2026-02-09\" into the \"Application Date\" field"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Submit\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Location is required\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Gotham City\" into the \"Location\" field"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Submit\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Success\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Wayne Enterprises\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC009",
+    "title": "Validation for missing Application Date",
+    "description": "Verifies the form shows a validation error when Application Date is missing and submits successfully after entering a date.",
+    "category": "Add / Edit Application",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /applications"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Add Application\""
+      },
+      {
+        "type": "action",
+        "description": "Type \"Umbrella Corp\" into the \"Company Name\" field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"DevOps Engineer\" into the \"Job Title\" field"
+      },
+      {
+        "type": "action",
+        "description": "Select \"Applied\" from the \"Status\" dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Raccoon City\" into the \"Location\" field"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Submit\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Application Date is required\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Type \"2026-02-08\" into the \"Application Date\" field"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Submit\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Success\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Umbrella Corp\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC010",
+    "title": "Filter applications by search term matching company name",
+    "description": "Verifies that typing a company name keyword filters the list and clearing restores the full list.",
+    "category": "Application Filtering",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /applications"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Applications\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Acme\" into the search bar"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Acme\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Clear the search bar"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the search bar is empty"
+      }
+    ]
+  },
+  {
+    "id": "TC011",
+    "title": "Filter applications by search term matching job title",
+    "description": "Verifies that typing a job title keyword filters the list and shows matching rows only.",
+    "category": "Application Filtering",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /applications"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the applications list is visible"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Engineer\" into the search bar"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Engineer\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Clear the search bar"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the applications list is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC012",
+    "title": "Search with no matches shows empty state and can be cleared",
+    "description": "Verifies that a non-matching search term shows a no-results/empty state and clearing restores the list.",
+    "category": "Application Filtering",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /applications"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the applications list is visible"
+      },
+      {
+        "type": "action",
+        "description": "Type \"NonexistentCo\" into the search bar"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"No results\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Clear the search bar"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the applications list is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC013",
+    "title": "Status filter dropdown filters to INTERVIEWING and can be cleared",
+    "description": "Verifies that selecting a status narrows results and clearing returns to the full list.",
+    "category": "Application Filtering",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /applications"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the applications list is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click the status filter dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Select \"INTERVIEWING\" from the dropdown"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"INTERVIEWING\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click the clear filter control"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the applications list is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC014",
+    "title": "Switching status filter from one value to another updates results",
+    "description": "Verifies that changing the selected status updates the displayed applications accordingly.",
+    "category": "Application Filtering",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /applications"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the applications list is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click the status filter dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Select \"APPLIED\" from the dropdown"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"APPLIED\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click the status filter dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Select \"OFFER\" from the dropdown"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"OFFER\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC015",
+    "title": "Combine search and status filter then clear both",
+    "description": "Verifies that search and status filtering can be used together and clearing both restores the unfiltered view.",
+    "category": "Application Filtering",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /applications"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the applications list is visible"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Acme\" into the search bar"
+      },
+      {
+        "type": "action",
+        "description": "Click the status filter dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Select \"INTERVIEWING\" from the dropdown"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"INTERVIEWING\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Clear the search bar"
+      },
+      {
+        "type": "action",
+        "description": "Click the clear filter control"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the applications list is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC016",
+    "title": "Whitespace-only search does not apply a filter",
+    "description": "Verifies that entering only spaces does not filter results (or is treated as empty) and the list remains available.",
+    "category": "Application Filtering",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /applications"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the applications list is visible"
+      },
+      {
+        "type": "action",
+        "description": "Type \"   \" into the search bar"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the applications list is visible"
+      },
+      {
+        "type": "action",
+        "description": "Clear the search bar"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the search bar is empty"
+      }
+    ]
+  },
+  {
+    "id": "TC017",
+    "title": "Delete an application after confirming in the dialog",
+    "description": "Verifies a user can delete an application from the list after confirming and the item disappears from the list with a visible success indication.",
+    "category": "Delete Application",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /applications"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Applications\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"job applications list\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Delete\" on the first application in the list"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Confirm\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Confirm\" in the confirmation dialog"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Deleted\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the first application is no longer visible in the list"
+      }
+    ]
+  },
+  {
+    "id": "TC018",
+    "title": "Cancel deletion from the confirmation dialog",
+    "description": "Verifies canceling the delete confirmation keeps the application in the list and does not show a deletion success message.",
+    "category": "Delete Application",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /applications"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"job applications list\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"first application row\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Delete\" on the first application in the list"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"delete confirmation dialog\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Cancel\" in the confirmation dialog"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"delete confirmation dialog\" is not visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"first application row\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC019",
+    "title": "Dismiss delete confirmation dialog with Escape key",
+    "description": "Verifies the confirmation dialog can be dismissed via keyboard and the application remains listed.",
+    "category": "Delete Application",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /applications"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"job applications list\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Delete\" on the first application in the list"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"delete confirmation dialog\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Press \"Escape\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"delete confirmation dialog\" is not visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"first application row\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC020",
+    "title": "Delete confirmation dialog shows the expected prompt content",
+    "description": "Verifies the delete confirmation dialog displays a clear prompt before the user confirms deletion.",
+    "category": "Delete Application",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /applications"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"job applications list\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Delete\" on the first application in the list"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Are you sure\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Confirm\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Cancel\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC021",
+    "title": "Delete button is available for an application row in the list",
+    "description": "Verifies each application row provides an in-list delete action to start the deletion flow.",
+    "category": "Delete Application",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /applications"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"job applications list\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"first application row\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Delete\" is visible on the first application row"
+      }
+    ]
+  },
+  {
+    "id": "TC022",
+    "title": "Confirm deletion closes the dialog and returns focus to the list view",
+    "description": "Verifies that after confirming deletion, the confirmation dialog is no longer shown and the user is back on the list view.",
+    "category": "Delete Application",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /applications"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"job applications list\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Delete\" on the first application in the list"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"delete confirmation dialog\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Confirm\" in the confirmation dialog"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"delete confirmation dialog\" is not visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"job applications list\" is visible"
+      }
+    ]
+  }
+]
