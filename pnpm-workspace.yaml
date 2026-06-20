@@ -1,6 +1,6 @@
 minimumReleaseAgeExclude:
-  - '@hono/node-server@1.19.13'
   - postcss@8.5.10
+  - vite@8.0.16
 overrides:
-  '@hono/node-server@<1.19.13': ^1.19.13
   postcss@<8.5.10: ^8.5.10
+  vite@>=8.0.0 <=8.0.15: ^8.0.16
